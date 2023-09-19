@@ -1,53 +1,34 @@
-int row ;
-int col;
-int sparseLen=0;
-typedef struct{
-int row;
-int col;
-int val;
-}sparseSt;
+#include<stdio.h>
+
 int main()
 {
-    printf("enter rows:\n");
-    scanf("%d",&row);
-    printf("enter col:\n");
-    scanf("%d",&col);
-    printf("enter the values:\n");
-    int sparseMat[row][col];
-    for (int i=0;i<row;i++)
+    int ROW,COL;
+    printf("Enter no of rows : ");
+    scanf("%d",&ROW);
+    printf("Enter no of coloumn : ");
+    scanf("%d",&COL);
+    int sparse[ROW][COL];
+    printf("Enter numbers : ");
+    for(int i=0; i<ROW; i++)
     {
-        for(int j=0;j<col;j++)
+
+        for(int j=0; j<COL; j++)
         {
-            int temp;
-            scanf("%d",&temp);
-            sparseMat[i][j]=temp;
-            if(temp!=0) sparseLen++;
+            scanf("%d",&sparse[i][j]);
         }
     }
-    sparseSt a[sparseLen+1];
-    a[0].row=row;
-    a[0].col=col;
-    a[0].val=sparseLen;
-    int ind=1;
-    for (int i=0;i<row;i++)
+    printf("ROW COL VAR\n");
+    for(int i=0; i<ROW; i++)
     {
-        for(int j=0;j<col;j++)
+        for(int j=0; j<COL; j++)
         {
-            int temp=sparseMat[i][j];
-            if(temp!=0)
+            if(sparse[i][j] != 0)
             {
-                a[ind].row=i;
-                a[ind].col=j;
-                a[ind].val=temp;
-                ind++;
-
+                printf(" %d    %d   %d \n",i,j,sparse[i][j]);
             }
         }
+
     }
-    printf("Sparse matrix struct:\n");
-    for(int i=0;i<=sparseLen;i++)
-    {
-        printf("%d %d %d\n",a[i].row,a[i].col,a[i].val);
-    }
+
     return 0;
 }
