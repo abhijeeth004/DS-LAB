@@ -33,7 +33,7 @@ int pop(Stack *stack) {
         return stack->data[stack->top--];
     } else {
         printf("Stack is empty.\n");
-        return -1; // You can choose an appropriate error value
+        return -1; // You can choose an appropriate error value//
     }
 }
 
